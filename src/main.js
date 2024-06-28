@@ -64,7 +64,7 @@ async function handleLoadMoreButtonClick() {
   try {
     const { hits } = await fetchPhotos(query, currentPage);
     const markup = galleryTemplate(hits);
-    refs.gallery.insertAdjacentHTML('afterbegin', markup);
+    refs.gallery.insertAdjacentHTML('beforeend', markup);
     lightbox.refresh();
     scrollOldElements();
   } catch (error) {
@@ -143,7 +143,7 @@ function updateGallery(totalElements, elementsArray) {
   }
   maxPage = Math.ceil(totalElements / perPage);
   const markup = galleryTemplate(elementsArray);
-  refs.gallery.insertAdjacentHTML('afterbegin', markup);
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
   catchLastPage();
 }
