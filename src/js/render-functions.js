@@ -1,9 +1,9 @@
 export function galleryTemplate(photos) {
-    return photos.map(photoTemplate).join('');
-  }
-  
-  function photoTemplate(photo) {
-    return `<li class="gallery-item">
+  return photos.map(photoTemplate).join('');
+}
+
+function photoTemplate(photo) {
+  return `<li class="gallery-item">
     <a href="${photo.largeImageURL}" class="gallery-item-link"
       ><img
         class="gallery-item-image"
@@ -30,4 +30,4 @@ export function galleryTemplate(photos) {
       </li>
     </ul>
   </li>`;
-  }
+}

@@ -48,7 +48,8 @@ section {
   color: #808080;
 }
 
-.search-button {
+.search-button,
+.load-more-button {
   font-family: 'Montserrat', sans-serif;
   border: none;
   border-radius: 8px;
@@ -64,10 +65,16 @@ section {
   transition: background-color 0.5s ease-in-out;
 }
 
-.search-button:hover,
-.search-button:focus {
-  background: #6c8cff;
+.load-more-button {
+  display: block;
+  margin: 0 auto;
+}
 
+.search-button:hover,
+.search-button:focus,
+.load-more-button:hover,
+.load-more-button:focus {
+  background: #6c8cff;
 }
 
 .gallery {
