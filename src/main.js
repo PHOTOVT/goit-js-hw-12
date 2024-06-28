@@ -64,7 +64,7 @@ async function handleLoadMoreButtonClick() {
   try {
     const { hits } = await fetchPhotos(input, currentPage);
     const markup = galleryTemplate(hits);
-    refs.gallery.insertAdjacentHTML('beforeend', markup);
+    refs.gallery.insertAdjacentHTML('afterbegin', markup);
     lightbox.refresh();
     scrollOldElements();
   } catch (error) {
@@ -104,7 +104,7 @@ function showElement(element) {
 }
 
 function showErrorMessage(error) {
-  // console.log(error);
+  console.log(error);
   iziToast.show({
     message:
       'An error occurred while fetching photos. Please, try again later.',
@@ -137,13 +137,13 @@ function updateGallery(totalElements, elementsArray) {
       maxWidth: '350px',
     });
     hideElement(refs.loader);
-    hideElement(refs.loadMoreBtn);
+    hideElement(refs.loadMoreButton);
     refs.searchForm.reset();
     return;
   }
   maxPage = Math.ceil(totalElements / perPage);
   const markup = galleryTemplate(elementsArray);
-  refs.gallery.insertAdjacentHTML('beforeend', markup);
+  refs.gallery.insertAdjacentHTML('afterbegin', markup);
   lightbox.refresh();
   catchLastPage();
 }
