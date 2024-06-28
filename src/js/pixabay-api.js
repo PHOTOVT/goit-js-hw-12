@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export async function fetchPhotos(input, currentPage) {
+export async function fetchPhotos(query, currentPage) {
   const url = 'https://pixabay.com/api/';
   const params = {
     key: '44576070-519b0fb3235ae96b7cd44aad7',
-    q: input,
+    q: query,
     per_page: 15,
     page: currentPage,
     image_type: 'photo',

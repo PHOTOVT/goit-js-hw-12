@@ -47,7 +47,7 @@ async function onSearchButtonSubmit(event) {
   showElement(refs.loader);
 
   try {
-    const { totalHits, hits } = await fetchPhotos(input, currentPage);
+    const { totalHits, hits } = await fetchPhotos(query, currentPage);
     updateGallery(totalHits, hits);
   } catch (error) {
     showErrorMessage(error);
@@ -62,7 +62,7 @@ async function handleLoadMoreButtonClick() {
   showElement(refs.loader);
   currentPage++;
   try {
-    const { hits } = await fetchPhotos(input, currentPage);
+    const { hits } = await fetchPhotos(query, currentPage);
     const markup = galleryTemplate(hits);
     refs.gallery.insertAdjacentHTML('afterbegin', markup);
     lightbox.refresh();
